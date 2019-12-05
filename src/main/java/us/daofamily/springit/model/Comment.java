@@ -1,4 +1,8 @@
-package us.daofamily.springit.domain;
+package us.daofamily.springit.model;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,17 +10,21 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
+@NoArgsConstructor
+@Data
 public class Comment {
 
     @Id
     @GeneratedValue
     private  Long id;
+
+    @NonNull
     private String body;
 
-    //link
-    public Comment(){}
 
-    public Long getId() {
+    //link
+
+    /*public Long getId() {
         return id;
     }
 
@@ -51,5 +59,5 @@ public class Comment {
     @Override
     public int hashCode() {
         return Objects.hash(id, body);
-    }
+    }*/
 }
