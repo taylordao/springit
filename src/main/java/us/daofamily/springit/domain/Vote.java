@@ -18,5 +18,5 @@ public class Vote {
     private Long id;
     @NonNull
     private int vote;
-    
+
 }
