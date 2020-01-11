@@ -1,4 +1,4 @@
-package us.daofamily.springit.model;
+package us.daofamily.springit.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Entity
-public class Link {
+public  class Link {
 
     @Id
     @GeneratedValue
@@ -29,17 +29,5 @@ public class Link {
     //comments
     @OneToMany(mappedBy = "link")
     private List<Comment> comments = new ArrayList<Comment>();
-
-    /*public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getUrl() {
-        return url;
-    }*/
 
 }
