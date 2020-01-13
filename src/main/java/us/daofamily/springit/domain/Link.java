@@ -3,6 +3,7 @@ package us.daofamily.springit.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 public  class Link extends Auditable{
 

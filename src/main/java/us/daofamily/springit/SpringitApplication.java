@@ -9,13 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import us.daofamily.springit.config.SpringitProperties;
-
-import java.sql.SQLOutput;
-import java.util.Arrays;
+import us.daofamily.springit.domain.Comment;
+import us.daofamily.springit.domain.Link;
+import us.daofamily.springit.repository.CommentRepository;
+import us.daofamily.springit.repository.LinkRepository;
 
 @SpringBootApplication
+@EnableJpaAuditing
 @EnableConfigurationProperties(SpringitProperties.class)
 public class SpringitApplication {
 
@@ -27,15 +29,13 @@ public class SpringitApplication {
     }
 
     @Bean
-    @Profile("dev")
-    CommandLineRunner runner() {
+    CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository){
         return args -> {
-            log.error("CommandLineRunner.run();");
-            log.warn("CommandLineRunner.run();");
-            log.debug("CommandLineRunner.run();");
-            log.trace("CommandLineRunner.run();");
-            log.info("CommandLineRunner.run();");
-            log.info("CommandLineRunner.run();");
+            Link link = new Link("Spring Boots 2", "https://github.com");
+            linkRepository.save(link);
+
+            Comment comment = new Comment("Spring boots 2 is very interesting!", link);
+            commentRepository.save(comment);
 
         };
     }
