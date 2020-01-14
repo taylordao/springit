@@ -2,7 +2,6 @@ package us.daofamily.springit.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-
 @ConfigurationProperties("springit")
 public class SpringitProperties {
     /**
